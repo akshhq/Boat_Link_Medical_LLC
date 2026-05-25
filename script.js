@@ -22,145 +22,6 @@ function waLink(productName) {
   return `https://wa.me/${COMPANY.whatsapp}?text=${msg}`;
 }
 
-/* ─── SVG PLACEHOLDER GENERATOR ───────────────────────────────── */
-function categoryColor(catName) {
-  const map = {
-    'ICU Equipment':                    { bg1: '#E8F0FC', bg2: '#C7D9F5', icon: '#0A3D6B', accent: '#00B4D8' },
-    'Medical Imaging':                  { bg1: '#E8F8FF', bg2: '#B8E4F5', icon: '#006B8B', accent: '#00C8E8' },
-    'Laboratory Equipment':             { bg1: '#F3E8FE', bg2: '#DDB8F5', icon: '#5B007E', accent: '#A855F7' },
-    'Neonatology Equipment':            { bg1: '#FEF3E8', bg2: '#F5D4B8', icon: '#7A3500', accent: '#F97316' },
-    'Dental Equipment':                 { bg1: '#E8FEEE', bg2: '#B8F0C8', icon: '#005C20', accent: '#22C55E' },
-    'Medical Optoelectronics':          { bg1: '#FEE8F8', bg2: '#F5B8E8', icon: '#7A0050', accent: '#EC4899' },
-    'Dialysis':                         { bg1: '#FEE8E8', bg2: '#F5B8B8', icon: '#8B0000', accent: '#EF4444' },
-    'ECG & EEG':                        { bg1: '#E8FEFC', bg2: '#B8F5EE', icon: '#004D40', accent: '#14B8A6' },
-    'Sterilizer Equipment':             { bg1: '#FFFBE8', bg2: '#F5EBB8', icon: '#7A5C00', accent: '#EAB308' },
-    'Gynaecology Equipment':            { bg1: '#FCE8FE', bg2: '#E8B8F5', icon: '#6B006B', accent: '#D946EF' },
-    'Physiotherapy Equipment':          { bg1: '#E8F8E8', bg2: '#B8F0B8', icon: '#005C00', accent: '#16A34A' },
-    'SCICAN Products':                  { bg1: '#E8EFFE', bg2: '#B8C8F5', icon: '#001A8B', accent: '#3B82F6' },
-    'Surgical 3-Ply Mask Machine':      { bg1: '#F0FEE8', bg2: '#C8F5B8', icon: '#1A5C00', accent: '#4ADE80' },
-    'Furniture & Logistics':            { bg1: '#F5F0E8', bg2: '#E0D0B8', icon: '#5C3A00', accent: '#92400E' },
-    'Consumables & Instruments':        { bg1: '#E8F5FE', bg2: '#B8DCF5', icon: '#003D6B', accent: '#0EA5E9' },
-    'Ophthalmology Equipment':          { bg1: '#FEF0E8', bg2: '#F5CCB8', icon: '#8B3A00', accent: '#F97316' },
-  };
-  return map[catName] || { bg1: '#E8F0FC', bg2: '#C7D9F5', icon: '#0A3D6B', accent: '#00B4D8' };
-}
-
-function makeSVG(catName, size = 'card') {
-  const c = categoryColor(catName);
-  const w = size === 'banner' ? 1200 : 400;
-  const h = size === 'banner' ? 300 : 220;
-  const cx = w / 2, cy = h / 2;
-
-  const icons = {
-    'ICU Equipment': `
-      <rect x="${cx-60}" y="${cy-40}" width="120" height="80" rx="8" fill="${c.icon}"/>
-      <rect x="${cx-52}" y="${cy-32}" width="104" height="64" rx="4" fill="#021D36"/>
-      <polyline points="${cx-45},${cy} ${cx-30},${cy} ${cx-20},${cy-22} ${cx-10},${cy+22} ${cx},${cy-10} ${cx+10},${cy} ${cx+30},${cy} ${cx+45},${cy}"
-        fill="none" stroke="#00E676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="${cx+50}" cy="${cy-25}" r="12" fill="${c.accent}" opacity="0.8"/>
-      <text x="${cx+50}" y="${cy-21}" font-family="monospace" font-size="10" fill="white" text-anchor="middle">BPM</text>`,
-    'Medical Imaging': `
-      <rect x="${cx-55}" y="${cy-30}" width="110" height="76" rx="8" fill="${c.icon}"/>
-      <rect x="${cx-45}" y="${cy-22}" width="90" height="50" rx="4" fill="#011020"/>
-      <ellipse cx="${cx}" cy="${cy+3}" rx="32" ry="18" fill="none" stroke="${c.accent}" stroke-width="2" opacity="0.7"/>
-      <ellipse cx="${cx}" cy="${cy+3}" rx="18" ry="10" fill="none" stroke="${c.accent}" stroke-width="2" opacity="0.9"/>
-      <circle cx="${cx}" cy="${cy+3}" r="5" fill="${c.accent}"/>
-      <line x1="${cx-45}" y1="${cy+3}" x2="${cx+45}" y2="${cy+3}" stroke="${c.accent}" stroke-width="0.8" opacity="0.3"/>
-      <line x1="${cx}" y1="${cy-22}" x2="${cx}" y2="${cy+28}" stroke="${c.accent}" stroke-width="0.8" opacity="0.3"/>`,
-    'Laboratory Equipment': `
-      <rect x="${cx-24}" y="${cy-42}" width="16" height="58" rx="4" fill="${c.icon}"/>
-      <rect x="${cx+8}" y="${cy-30}" width="16" height="46" rx="4" fill="${c.accent}" opacity="0.8"/>
-      <ellipse cx="${cx-16}" cy="${cy+20}" rx="22" ry="10" fill="${c.icon}" opacity="0.6"/>
-      <ellipse cx="${cx+16}" cy="${cy+20}" rx="18" ry="8" fill="${c.accent}" opacity="0.5"/>
-      <rect x="${cx-50}" y="${cy+28}" width="100" height="8" rx="3" fill="${c.icon}" opacity="0.4"/>`,
-    'Neonatology Equipment': `
-      <rect x="${cx-55}" y="${cy-38}" width="110" height="76" rx="12" fill="${c.icon}" opacity="0.9"/>
-      <rect x="${cx-45}" y="${cy-28}" width="90" height="56" rx="8" fill="#fff3e0" opacity="0.2"/>
-      <ellipse cx="${cx}" cy="${cy+4}" rx="22" ry="22" fill="none" stroke="${c.accent}" stroke-width="3"/>
-      <ellipse cx="${cx}" cy="${cy+4}" rx="14" ry="14" fill="${c.accent}" opacity="0.3"/>
-      <circle cx="${cx}" cy="${cy+4}" r="6" fill="${c.accent}"/>`,
-    'Dental Equipment': `
-      <path d="M${cx},${cy-36} C${cx-28},${cy-36} ${cx-36},${cy-12} ${cx-28},${cy+8} C${cx-20},${cy+28} ${cx-8},${cy+36} ${cx},${cy+28} C${cx+8},${cy+36} ${cx+20},${cy+28} ${cx+28},${cy+8} C${cx+36},${cy-12} ${cx+28},${cy-36} ${cx},${cy-36} Z"
-        fill="${c.icon}" stroke="${c.accent}" stroke-width="2"/>
-      <path d="M${cx-10},${cy-10} L${cx},${cy+10} L${cx+10},${cy-10}"
-        fill="none" stroke="${c.accent}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`,
-    'ECG & EEG': `
-      <rect x="${cx-60}" y="${cy-28}" width="120" height="56" rx="6" fill="${c.icon}"/>
-      <rect x="${cx-52}" y="${cy-20}" width="104" height="40" rx="3" fill="#011A14"/>
-      <polyline points="${cx-48},${cy} ${cx-32},${cy} ${cx-22},${cy-16} ${cx-14},${cy+16} ${cx-6},${cy-8} ${cx+2},${cy} ${cx+20},${cy} ${cx+30},${cy+0} ${cx+40},${cy-14} ${cx+48},${cy+14} ${cx+52},${cy}"
-        fill="none" stroke="${c.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`,
-    'Sterilizer Equipment': `
-      <ellipse cx="${cx}" cy="${cy}" rx="50" ry="50" fill="${c.icon}" opacity="0.9"/>
-      <ellipse cx="${cx}" cy="${cy}" rx="38" ry="38" fill="#0A0A0A" opacity="0.6"/>
-      <ellipse cx="${cx}" cy="${cy}" rx="26" ry="26" fill="none" stroke="${c.accent}" stroke-width="2" stroke-dasharray="6 3" opacity="0.8"/>
-      <text x="${cx}" y="${cy+6}" font-family="monospace" font-size="14" fill="${c.accent}" text-anchor="middle" font-weight="bold">134°C</text>`,
-    'Dialysis': `
-      <rect x="${cx-60}" y="${cy-36}" width="120" height="72" rx="10" fill="${c.icon}"/>
-      <circle cx="${cx-30}" cy="${cy}" r="20" fill="${c.accent}" opacity="0.3" stroke="${c.accent}" stroke-width="2"/>
-      <circle cx="${cx+30}" cy="${cy}" r="20" fill="${c.accent}" opacity="0.3" stroke="${c.accent}" stroke-width="2"/>
-      <line x1="${cx-10}" y1="${cy}" x2="${cx+10}" y2="${cy}" stroke="${c.accent}" stroke-width="3" stroke-dasharray="4 3"/>`,
-    'Gynaecology Equipment': `
-      <circle cx="${cx}" cy="${cy-10}" r="42" fill="${c.icon}" opacity="0.15"/>
-      <path d="M${cx-30},${cy-30} Q${cx},${cy-50} ${cx+30},${cy-30} Q${cx+40},${cy} ${cx+20},${cy+20} Q${cx},${cy+36} ${cx-20},${cy+20} Q${cx-40},${cy} ${cx-30},${cy-30} Z"
-        fill="${c.icon}" opacity="0.8" stroke="${c.accent}" stroke-width="1.5"/>
-      <circle cx="${cx}" cy="${cy+36}" r="10" fill="${c.accent}" opacity="0.6"/>`,
-    'Physiotherapy Equipment': `
-      <rect x="${cx-20}" y="${cy-50}" width="40" height="100" rx="12" fill="${c.icon}" opacity="0.3"/>
-      <rect x="${cx-50}" y="${cy-20}" width="100" height="40" rx="12" fill="${c.icon}" opacity="0.3"/>
-      <path d="M${cx-15},${cy-42} L${cx+15},${cy-42} L${cx+15},${cy-12} L${cx+42},${cy-12} L${cx+42},${cy+12} L${cx+15},${cy+12} L${cx+15},${cy+42} L${cx-15},${cy+42} L${cx-15},${cy+12} L${cx-42},${cy+12} L${cx-42},${cy-12} L${cx-15},${cy-12} Z"
-        fill="${c.icon}" stroke="${c.accent}" stroke-width="1.5"/>`,
-    'SCICAN Products': `
-      <rect x="${cx-54}" y="${cy-34}" width="108" height="68" rx="8" fill="${c.icon}"/>
-      <rect x="${cx-46}" y="${cy-26}" width="92" height="52" rx="5" fill="#040414"/>
-      <circle cx="${cx-18}" cy="${cy}" r="16" fill="none" stroke="${c.accent}" stroke-width="2.5"/>
-      <circle cx="${cx+18}" cy="${cy}" r="16" fill="none" stroke="${c.accent}" stroke-width="2.5"/>
-      <line x1="${cx-46}" y1="${cy}" x2="${cx+46}" y2="${cy}" stroke="${c.accent}" stroke-width="1" opacity="0.3"/>`,
-    'Surgical 3-Ply Mask Machine': `
-      <rect x="${cx-56}" y="${cy-28}" width="112" height="56" rx="8" fill="${c.icon}"/>
-      <rect x="${cx-46}" y="${cy-18}" width="92" height="36" rx="10" fill="${c.accent}" opacity="0.25" stroke="${c.accent}" stroke-width="1.5"/>
-      <line x1="${cx-40}" y1="${cy-8}" x2="${cx+40}" y2="${cy-8}" stroke="${c.accent}" stroke-width="2" stroke-linecap="round"/>
-      <line x1="${cx-40}" y1="${cy}"   x2="${cx+40}" y2="${cy}"   stroke="${c.accent}" stroke-width="2" stroke-linecap="round"/>
-      <line x1="${cx-40}" y1="${cy+8}" x2="${cx+40}" y2="${cy+8}" stroke="${c.accent}" stroke-width="2" stroke-linecap="round"/>`,
-    'Furniture & Logistics': `
-      <rect x="${cx-60}" y="${cy+10}" width="120" height="36" rx="4" fill="${c.icon}"/>
-      <rect x="${cx-48}" y="${cy-20}" width="96" height="34" rx="4" fill="${c.accent}" opacity="0.5"/>
-      <rect x="${cx-28}" y="${cy-42}" width="56" height="26" rx="4" fill="${c.icon}" opacity="0.7"/>
-      <circle cx="${cx-40}" cy="${cy+50}" r="8" fill="${c.icon}" opacity="0.8"/>
-      <circle cx="${cx+40}" cy="${cy+50}" r="8" fill="${c.icon}" opacity="0.8"/>`,
-    'Consumables & Instruments': `
-      <line x1="${cx-40}" y1="${cy-36}" x2="${cx-40}" y2="${cy+36}" stroke="${c.icon}" stroke-width="8" stroke-linecap="round"/>
-      <line x1="${cx}"    y1="${cy-44}" x2="${cx}"    y2="${cy+44}" stroke="${c.accent}" stroke-width="8" stroke-linecap="round"/>
-      <line x1="${cx+40}" y1="${cy-32}" x2="${cx+40}" y2="${cy+32}" stroke="${c.icon}" stroke-width="8" stroke-linecap="round"/>
-      <ellipse cx="${cx-40}" cy="${cy-40}" rx="8" ry="5" fill="${c.icon}" opacity="0.7"/>
-      <ellipse cx="${cx}"    cy="${cy-48}" rx="8" ry="5" fill="${c.accent}" opacity="0.7"/>
-      <ellipse cx="${cx+40}" cy="${cy-36}" rx="8" ry="5" fill="${c.icon}" opacity="0.7"/>`,
-    'Ophthalmology Equipment': `
-      <ellipse cx="${cx}" cy="${cy}" rx="52" ry="36" fill="${c.icon}" opacity="0.15"/>
-      <ellipse cx="${cx}" cy="${cy}" rx="50" ry="34" fill="none" stroke="${c.icon}" stroke-width="3"/>
-      <circle cx="${cx}" cy="${cy}" r="22" fill="${c.icon}" opacity="0.8"/>
-      <circle cx="${cx}" cy="${cy}" r="14" fill="${c.accent}" opacity="0.6"/>
-      <circle cx="${cx}" cy="${cy}" r="7"  fill="#021D36"/>
-      <circle cx="${cx-4}" cy="${cy-4}" r="3" fill="white" opacity="0.5"/>`,
-  };
-
-  const iconSVG = icons[catName] || icons['ICU Equipment'];
-
-  const svg = `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="bg_${btoa(catName).replace(/[^a-zA-Z0-9]/g,'')}" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="${c.bg1}"/>
-        <stop offset="100%" stop-color="${c.bg2}"/>
-      </linearGradient>
-    </defs>
-    <rect width="${w}" height="${h}" fill="url(#bg_${btoa(catName).replace(/[^a-zA-Z0-9]/g,'')})"/>
-    <circle cx="${w*0.85}" cy="${h*0.15}" r="${Math.min(w,h)*0.28}" fill="${c.accent}" opacity="0.06"/>
-    <circle cx="${w*0.1}"  cy="${h*0.8}"  r="${Math.min(w,h)*0.2}"  fill="${c.icon}"   opacity="0.05"/>
-    ${iconSVG}
-  </svg>`;
-
-  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-}
-
 /* ─── 16 CATEGORIES ────────────────────────────────────────────── */
 const categories = [
   {
@@ -1984,7 +1845,7 @@ function renderCategoryGrid() {
 
   grid.innerHTML = categories.map(cat => {
     const count = countForCategory(cat.name);
-    const img   = makeSVG(cat.name, 'card');
+    const img   = 'images/main.svg';
     return `
       <article class="cat-card scroll-reveal" data-cat="${esc(cat.name)}" tabindex="0" role="button" aria-label="View products in ${esc(cat.name)}">
         <div class="cat-card-img-wrap">
@@ -2119,7 +1980,7 @@ function renderCategoryProducts() {
   grid.style.display = '';
   noRes.hidden = true;
 
-  const placeholderImg = makeSVG(currentCategory, 'card');
+  const placeholderImg = 'images/main.svg';
 
   grid.innerHTML = filtered.map((p, i) => {
     const hasMfr   = p.manufacturer && p.manufacturer.trim();
@@ -2174,7 +2035,7 @@ function openModal(productId) {
   const body    = $('modalBody');
   if (!overlay || !body) return;
 
-  const img     = p.image || makeSVG(p.category, 'card');
+  const img     = p.image || 'images/main.svg';
   const hasMfr  = p.manufacturer && p.manufacturer.trim();
   const hasMdl  = p.model && p.model.trim();
   const hasFull = p.fullDescription && p.fullDescription.trim();
