@@ -2429,7 +2429,7 @@ function initBackToTop() {
 ════════════════════════════════════════════════════════════════ */
 function initFooter() {
   const el = $('footerYear');
-  if (el) el.textContent = new Date().getFullYear();
+  if (el) el.textContent = '2025';
 }
 
 /* ════════════════════════════════════════════════════════════════
