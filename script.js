@@ -2085,23 +2085,25 @@ function renderCategoryProducts() {
         <div class="prod-card-img-wrap">
           <img src="${p.image || placeholderImg}" alt="${esc(p.name)}" loading="lazy" width="400" height="250"/>
         </div>
-        <div class="prod-card-body">
-          <h3 class="prod-card-name">${esc(p.name)}</h3>
-          <p class="prod-card-desc">${esc(p.shortDescription)}</p>
-          ${hasMfr || hasModel ? `
-          <div class="prod-card-meta">
-            ${hasMfr   ? `<div class="prod-card-meta-row"><span class="prod-card-meta-label">Manufacturer</span><span class="prod-card-meta-value">${esc(p.manufacturer)}</span></div>` : ''}
-            ${hasModel ? `<div class="prod-card-meta-row"><span class="prod-card-meta-label">Model</span><span class="prod-card-meta-value">${esc(p.model)}</span></div>` : ''}
-          </div>` : ''}
-        </div>
-        <div class="prod-card-footer">
-          <button class="btn btn-outline btn-sm" data-product-id="${p.id}" aria-label="More info about ${esc(p.name)}">More Info</button>
-          <a href="${waLink(p.name)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="WhatsApp enquiry for ${esc(p.name)}">
-            <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
-              <path d="M8 0C3.582 0 0 3.582 0 8c0 1.408.369 2.728 1.009 3.872L0 16l4.24-.995A7.96 7.96 0 008 16c4.418 0 8-3.582 8-8s-3.582-8-8-8zm4.136 11.336c-.176.498-1.032.952-1.416.978-.384.032-.392.28-2.48-.584C6.16 10.872 4.952 8.616 4.856 8.472c-.096-.136-.792-1.104-.76-2.08.032-.976.536-1.44.728-1.64.192-.2.416-.248.56-.248.144 0 .28.001.4.007.128.007.304-.048.472.376.176.44.6 1.504.656 1.616.056.112.088.24.016.384-.072.144-.104.232-.208.36-.104.128-.216.288-.312.384-.104.104-.208.216-.088.424.12.208.544.896 1.168 1.448.792.696 1.472.936 1.68 1.04.208.104.328.088.448-.056.12-.144.512-.6.648-.808.136-.208.272-.168.456-.104.184.064 1.176.584 1.376.696.2.112.336.16.384.248.048.088.048.504-.128 1z"/>
-            </svg>
-            Enquire
-          </a>
+        <div class="prod-card-right">
+          <div class="prod-card-body">
+            <h3 class="prod-card-name">${esc(p.name)}</h3>
+            <p class="prod-card-desc">${esc(p.shortDescription)}</p>
+            ${hasMfr || hasModel ? `
+            <div class="prod-card-meta">
+              ${hasMfr   ? `<div class="prod-card-meta-row"><span class="prod-card-meta-label">Manufacturer</span><span class="prod-card-meta-value">${esc(p.manufacturer)}</span></div>` : ''}
+              ${hasModel ? `<div class="prod-card-meta-row"><span class="prod-card-meta-label">Model</span><span class="prod-card-meta-value">${esc(p.model)}</span></div>` : ''}
+            </div>` : ''}
+          </div>
+          <div class="prod-card-footer">
+            <button class="btn btn-outline btn-sm" data-product-id="${p.id}" aria-label="More info about ${esc(p.name)}">More Info</button>
+            <a href="${waLink(p.name)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="WhatsApp enquiry for ${esc(p.name)}">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
+                <path d="M8 0C3.582 0 0 3.582 0 8c0 1.408.369 2.728 1.009 3.872L0 16l4.24-.995A7.96 7.96 0 008 16c4.418 0 8-3.582 8-8s-3.582-8-8-8zm4.136 11.336c-.176.498-1.032.952-1.416.978-.384.032-.392.28-2.48-.584C6.16 10.872 4.952 8.616 4.856 8.472c-.096-.136-.792-1.104-.76-2.08.032-.976.536-1.44.728-1.64.192-.2.416-.248.56-.248.144 0 .28.001.4.007.128.007.304-.048.472.376.176.44.6 1.504.656 1.616.056.112.088.24.016.384-.072.144-.104.232-.208.36-.104.128-.216.288-.312.384-.104.104-.208.216-.088.424.12.208.544.896 1.168 1.448.792.696 1.472.936 1.68 1.04.208.104.328.088.448-.056.12-.144.512-.6.648-.808.136-.208.272-.168.456-.104.184.064 1.176.584 1.376.696.2.112.336.16.384.248.048.088.048.504-.128 1z"/>
+              </svg>
+              Enquire
+            </a>
+          </div>
         </div>
       </article>`;
   }).join('');
