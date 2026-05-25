@@ -1,8 +1,3 @@
-/* ============================================================
-   Boat Link Medical Equipment Trading L.L.C — script.js
-   SPA Catalog | WhatsApp Integration | Fixed Modal
-   ============================================================ */
-
 'use strict';
 
 /* ─── COMPANY CONFIG ───────────────────────────────────────────── */
