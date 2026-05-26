@@ -17,7 +17,7 @@ function waLink(productName) {
   return `https://wa.me/${COMPANY.whatsapp}?text=${msg}`;
 }
 
-/* ─── 16 CATEGORIES ────────────────────────────────────────────── */
+/* ─── 15 CATEGORIES ────────────────────────────────────────────── */
 const categories = [
   {
     name:        'ICU Equipment',
