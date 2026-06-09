@@ -6,7 +6,7 @@ const COMPANY = {
   phone:     '+971543816497',
   whatsapp:  '971543816497',
   email:     'boatlink4@gmail.com',
-  address:   'Business Venue Building, office 101, Oud mehta,Dubai ,UAE',
+  address:   'Business Venue Building, Office 101, Oud Mehta, Dubai , UAE',
 };
 
 /* ─── WHATSAPP HELPER ──────────────────────────────────────────── */
