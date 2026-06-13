@@ -3,18 +3,15 @@
 /* ─── COMPANY CONFIG ───────────────────────────────────────────── */
 const COMPANY = {
   name:      'Boat Link Medical Equipment Trading L.L.C',
-  phone:     '+971543816497',
-  whatsapp:  '971543816497',
+  phone:     '(04)5808953',
+  phoneHref: '+97145808953',
   email:     'boatlink4@gmail.com',
   address:   'Business Venue Building, Office 101, Oud Mehta, Dubai , UAE',
 };
 
-/* ─── WHATSAPP HELPER ──────────────────────────────────────────── */
-function waLink(productName) {
-  const msg = encodeURIComponent(
-    `Hello,\n\nI am interested in:\n${productName}\n\nPlease share details.`
-  );
-  return `https://wa.me/${COMPANY.whatsapp}?text=${msg}`;
+/* ─── CALL HELPER ─────────────────────────────────────────────── */
+function callLink() {
+  return `tel:${COMPANY.phoneHref}`;
 }
 
 /* ─── 15 CATEGORIES ────────────────────────────────────────────── */
@@ -2097,11 +2094,11 @@ function renderCategoryProducts() {
           </div>
           <div class="prod-card-footer">
             <button class="btn btn-outline btn-sm" data-product-id="${p.id}" aria-label="More info about ${esc(p.name)}">More Info</button>
-            <a href="${waLink(p.name)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="WhatsApp enquiry for ${esc(p.name)}">
+            <a href="${callLink()}" class="btn btn-call btn-sm" aria-label="Call for enquiry about ${esc(p.name)}">
               <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
-                <path d="M8 0C3.582 0 0 3.582 0 8c0 1.408.369 2.728 1.009 3.872L0 16l4.24-.995A7.96 7.96 0 008 16c4.418 0 8-3.582 8-8s-3.582-8-8-8zm4.136 11.336c-.176.498-1.032.952-1.416.978-.384.032-.392.28-2.48-.584C6.16 10.872 4.952 8.616 4.856 8.472c-.096-.136-.792-1.104-.76-2.08.032-.976.536-1.44.728-1.64.192-.2.416-.248.56-.248.144 0 .28.001.4.007.128.007.304-.048.472.376.176.44.6 1.504.656 1.616.056.112.088.24.016.384-.072.144-.104.232-.208.36-.104.128-.216.288-.312.384-.104.104-.208.216-.088.424.12.208.544.896 1.168 1.448.792.696 1.472.936 1.68 1.04.208.104.328.088.448-.056.12-.144.512-.6.648-.808.136-.208.272-.168.456-.104.184.064 1.176.584 1.376.696.2.112.336.16.384.248.048.088.048.504-.128 1z"/>
+                <path d="M5.5 1.5A1.5 1.5 0 004 3v1.5c0 5.247 4.253 9.5 9.5 9.5H15a1.5 1.5 0 001.5-1.5v-1.2a1 1 0 00-.69-.95l-2.25-.75a1 1 0 00-1.03.24l-.65.61a8.8 8.8 0 01-3.8-3.8l.61-.65a1 1 0 00.24-1.03l-.75-2.25a1 1 0 00-.95-.69H5.5z"/>
               </svg>
-              Enquire
+              Call for Enquiry
             </a>
           </div>
         </div>
@@ -2186,11 +2183,11 @@ function openModal(productId) {
     <div class="modal-notes">${esc(p.notes)}</div>` : ''}
 
     <div class="modal-footer">
-      <a href="${waLink(p.name)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true">
-          <path d="M10 0C4.477 0 0 4.477 0 10c0 1.76.46 3.41 1.26 4.84L0 20l5.3-1.24A9.95 9.95 0 0010 20c5.523 0 10-4.477 10-10S15.523 0 10 0zm5.17 14.17c-.22.62-1.29 1.19-1.77 1.22-.48.04-.49.35-3.1-.73-2.6-1.07-4.19-3.77-4.31-3.94-.13-.17-.99-1.38-.95-2.6.04-1.22.67-1.8.91-2.05.24-.25.52-.31.7-.31.18 0 .35.001.5.008.16.008.38-.06.59.47.22.55.75 1.88.82 2.02.07.14.11.3.02.48-.09.18-.13.29-.26.45-.13.16-.27.36-.39.48-.13.13-.26.27-.11.53.15.26.68 1.12 1.46 1.81.99.87 1.84 1.17 2.1 1.3.26.13.41.11.56-.07.15-.18.64-.75.81-1.01.17-.26.34-.21.57-.13.23.08 1.47.73 1.72.87.25.14.42.2.48.31.06.11.06.63-.16 1.25z"/>
+      <a href="${callLink()}" class="btn btn-call">
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" aria-hidden="true">
+          <path d="M5 4a2 2 0 012-2h2a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.23 1.03L10 9.5a11.05 11.05 0 004.5 4.5l1.29-1.22a1 1 0 011.03-.23l4.5 1.5A1 1 0 0122 15v2a2 2 0 01-2 2A16 16 0 015 4z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Enquire on WhatsApp
+        Call for Enquiry
       </a>
       <button class="btn btn-outline" id="modalCloseBtn">Close</button>
     </div>`;

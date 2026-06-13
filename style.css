@@ -184,12 +184,12 @@ address { font-style: normal; }
   border-color: var(--clr-white); transform: translateY(-1px);
 }
 
-/* WhatsApp button */
-.btn-whatsapp {
+/* Call button */
+.btn-call {
   background: var(--clr-wa); color: var(--clr-white);
   border-color: var(--clr-wa);
 }
-.btn-whatsapp:hover {
+.btn-call:hover {
   background: var(--clr-wa-dark);
   border-color: var(--clr-wa-dark);
   box-shadow: 0 4px 16px rgba(37,211,102,.35);
@@ -696,6 +696,7 @@ address { font-style: normal; }
   grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-5);
   margin-bottom: var(--sp-10);
+  align-items: stretch;
 }
 .contact-card {
   display: flex; flex-direction: column;
@@ -706,16 +707,17 @@ address { font-style: normal; }
   padding: var(--sp-8) var(--sp-5);
   transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
   gap: var(--sp-3);
+  height: 100%;
 }
 .contact-card:is(a):hover {
   transform: translateY(-4px);
   box-shadow: var(--sh-lg);
   border-color: var(--clr-accent-light);
 }
-.contact-card--whatsapp {
+.contact-card--call {
   border-color: rgba(37,211,102,.3);
 }
-.contact-card--whatsapp:hover {
+.contact-card--call:hover {
   border-color: var(--clr-wa) !important;
   box-shadow: 0 8px 32px rgba(37,211,102,.2) !important;
 }
@@ -728,7 +730,7 @@ address { font-style: normal; }
   display: flex; align-items: center; justify-content: center;
   color: var(--clr-primary);
 }
-.contact-card--whatsapp .contact-card-icon { color: var(--clr-wa); background: var(--clr-wa-light); border-color: rgba(37,211,102,.3); }
+.contact-card--call .contact-card-icon { color: var(--clr-wa); background: var(--clr-wa-light); border-color: rgba(37,211,102,.3); }
 .contact-card-icon svg { width: 22px; height: 22px; }
 
 .contact-card h4 {
@@ -740,10 +742,11 @@ address { font-style: normal; }
   font-size: .9375rem; font-weight: 500; color: var(--clr-text);
 }
 
-.contact-whatsapp-cta {
+.contact-call-cta {
   display: flex; justify-content: center;
+  align-items: center;
 }
-.contact-whatsapp-cta .btn-lg {
+.contact-call-cta .btn-lg {
   padding: 1rem 2.5rem; font-size: 1.0625rem;
 }
 
@@ -1137,7 +1140,7 @@ address { font-style: normal; }
 }
 .footer-address a:hover { color: var(--clr-accent-light); }
 
-.footer-wa-btn { font-size: .875rem; padding: .55rem 1.2rem; }
+.footer-call-btn { font-size: .875rem; padding: .55rem 1.2rem; }
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
@@ -1279,8 +1282,8 @@ address { font-style: normal; }
     color: var(--clr-primary);
   }
 
-  /* WhatsApp button inside the drawer */
-  .nav-mobile-wa {
+  /* Call button inside the drawer */
+  .nav-mobile-call {
     display: flex !important;
     margin-top: var(--sp-3);
   }
@@ -1354,6 +1357,7 @@ address { font-style: normal; }
     font-size: .875rem;
     line-height: 1.25;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -1362,6 +1366,7 @@ address { font-style: normal; }
     font-size: .75rem;
     line-height: 1.45;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
