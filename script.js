@@ -3,7 +3,7 @@
 /* ─── COMPANY CONFIG ───────────────────────────────────────────── */
 const COMPANY = {
   name:      'Boat Link Medical Equipment Trading L.L.C',
-  phone:     '(04)5808953',
+  phone:     '+971 45808953',
   phoneHref: '+97145808953',
   email:     'info@boatlinkmed.com',
   address:   'Business Venue Building, Office 101, Oud Mehta, Dubai , UAE',
